@@ -1,0 +1,132 @@
+[
+  {
+    "id": "chips",
+    "name": "Chips",
+    "slug": "chips",
+    "displayCount": 18,
+    "demoProductCount": 15,
+    "description": "Polished mini gemstone chips for crystal grids and energy healing.",
+    "image": "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "shiva-lingam",
+    "name": "Shiva Lingam",
+    "slug": "shiva-lingam",
+    "displayCount": 6,
+    "demoProductCount": 6,
+    "description": "Hand-shaped gemstone Shiva Lingams for devotion, meditation, and sacred grounding.",
+    "image": "/images/categories/shiva-lingam.jpg",
+    "isActive": true
+  },
+  {
+    "id": "pyramid",
+    "name": "Pyramid",
+    "slug": "pyramid",
+    "displayCount": 14,
+    "demoProductCount": 6,
+    "description": "Gemstone and glass pyramids to channel positive energy.",
+    "image": "https://images.unsplash.com/photo-1519751138087-5bf79df62d5b?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "crystal-tumble",
+    "name": "Crystal Tumble",
+    "slug": "crystal-tumble",
+    "displayCount": 32,
+    "demoProductCount": 6,
+    "description": "Smooth rounded pocket stones for therapeutic layouts.",
+    "image": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "ball",
+    "name": "Ball",
+    "slug": "ball",
+    "displayCount": 8,
+    "demoProductCount": 5,
+    "description": "Highly polished spherical crystal spheres for focal meditation.",
+    "image": "https://images.unsplash.com/photo-1506318137071-a8e063b4bec0?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "oval-shape-crystal",
+    "name": "Oval Shape Crystal",
+    "slug": "oval-shape-crystal",
+    "displayCount": 16,
+    "demoProductCount": 5,
+    "description": "Oval cut polished crystals and gemstone cabochons.",
+    "image": "https://images.unsplash.com/photo-1615655406736-b37c4fabf923?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "tumbled-stone-grape-cluster",
+    "name": "Tumbled Stone Grape Cluster",
+    "slug": "tumbled-stone-grape-cluster",
+    "displayCount": 4,
+    "demoProductCount": 3,
+    "description": "Carved gemstone grapes representing abundance and harvest.",
+    "image": "https://images.unsplash.com/photo-1537640538966-79f369143f8f?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "energy-healing-pencil-crystal",
+    "name": "Energy Healing Pencil Crystal",
+    "slug": "energy-healing-pencil-crystal",
+    "displayCount": 21,
+    "demoProductCount": 5,
+    "description": "Single-terminated points to direct crystal energy.",
+    "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "mala",
+    "name": "Mala",
+    "slug": "mala",
+    "displayCount": 28,
+    "demoProductCount": 6,
+    "description": "Sacred Vedic prayer beads and Rudraksha rosaries.",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "bracelet",
+    "name": "Bracelet",
+    "slug": "bracelet",
+    "displayCount": 34,
+    "demoProductCount": 6,
+    "description": "Vibrant energetic bracelets of natural gemstone beads.",
+    "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "crystal-collection",
+    "name": "Crystal Collection",
+    "slug": "crystal-collection",
+    "displayCount": 10,
+    "demoProductCount": 4,
+    "description": "Set of multi-colored natural crystals and raw gemstones.",
+    "image": "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "spiritual-metal",
+    "name": "Spiritual Metal",
+    "slug": "spiritual-metal",
+    "displayCount": 17,
+    "demoProductCount": 5,
+    "description": "Sacred brass singing bowls and worship bells.",
+    "image": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  },
+  {
+    "id": "yantra",
+    "name": "Yantra",
+    "slug": "yantra",
+    "displayCount": 15,
+    "demoProductCount": 6,
+    "description": "Sacred diagram geometric metal plates and engraved yantras.",
+    "image": "https://images.unsplash.com/photo-1602810317536-5d5e8a552d15?w=600&auto=format&fit=crop&q=80",
+    "isActive": true
+  }
+]

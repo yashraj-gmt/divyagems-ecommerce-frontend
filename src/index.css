@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Poppins:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* =========================================================
+   DIVYA GEMS — DESIGN TOKENS
+   Palette: gemstone jewel-tones + temple gold, not generic
+   e-commerce orange/cream. Change values here only — every
+   component reads color via Tailwind classes (bg-primary,
+   text-text-primary, etc.) which map to these variables in
+   tailwind.config.js.
+   ========================================================= */
+:root {
+  /* Core brand */
+  --color-primary: #3B0B14;         /* ink maroon — headings, footer-adjacent bands, primary buttons */
+  --color-primary-light: #5A1622;   /* lighter maroon for hover/tints */
+
+  /* Button brand colour */
+  --color-btn: #8F5F2F;             /* warm brown — primary button background */
+  --color-btn-hover: #7A4F26;       /* darker brown — button hover/pressed state */
+
+  --color-secondary: #C89B3C;       /* temple gold — CTAs, price highlights, dividers, active states */
+  --color-secondary-dark: #A87F2C;  /* gold hover/pressed state */
+  --color-secondary-light: #E4C570; /* gold tint for subtle backgrounds/badges */
+
+  --color-accent-emerald: #0F4D3A;  /* deep emerald — secondary accent, badges (Bestseller/New), category highlights */
+
+  /* Backgrounds */
+  --color-bg: #F7F1E4;              /* parchment — primary section background */
+  --color-bg-section: #EDE2C9;      /* sandstone — alternate section background */
+  --color-bg-dark: #3B0B14;         /* same as primary — used for Offer + Contact-teaser dark bands */
+
+  /* Text */
+  --color-text-primary: #2A2622;    /* ash — body copy */
+  --color-text-muted: #6B6153;      /* ash-muted — captions, secondary text */
+  --color-text-inverse: #F7F1E4;    /* parchment text on dark backgrounds */
+  --color-text-gold: #C89B3C;       /* gold text, e.g. eyebrows, prices */
+
+  /* Borders / surfaces */
+  --color-border: #E2D5B8;          /* hairline borders, card outlines */
+  --color-white: #FFFFFF;
+
+  /* Shadows — warm-tinted, not generic black, so cards feel like they
+     belong on parchment rather than a default Tailwind shadow */
+  --shadow-card: 0 2px 8px rgba(59, 11, 20, 0.06);
+  --shadow-hover: 0 12px 24px rgba(59, 11, 20, 0.14);
+
+  /* Layout */
+  --container-max: 1280px;
+}
+
+@layer base {
+  body {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    @apply bg-bg text-text-primary text-base leading-relaxed;
+  }
+  h1 { @apply font-display text-3xl md:text-4xl font-bold text-primary; }
+  h2 { @apply font-display text-2xl md:text-3xl font-semibold text-primary; }
+  h3 { @apply font-display text-xl font-semibold text-primary; }
+  h4 { @apply text-lg font-semibold text-primary; }
+  a { @apply text-primary transition-colors duration-200; }
+  a:hover { @apply text-secondary-dark; }
+}
+
+@layer components {
+  .container-app { @apply max-w-container mx-auto px-4; }
+
+  /* Buttons */
+  .btn, .btn-primary, .btn-secondary, .btn-outline { @apply inline-block font-medium tracking-wide px-7 py-3 rounded-full cursor-pointer transition-all duration-200; }
+  .btn-primary { background-color: var(--color-btn); @apply text-text-inverse hover:-translate-y-0.5; }
+  .btn-primary:hover { background-color: var(--color-btn-hover); }
+  .btn-secondary { @apply bg-secondary text-primary hover:bg-secondary-dark; }
+  .btn-outline { @apply bg-transparent border border-secondary text-primary hover:bg-secondary hover:text-primary; }
+
+  /* Cards (product cards, testimonial cards, category cards all use this) */
+  .card { @apply bg-white border border-border rounded-xl shadow-card hover:shadow-hover hover:-translate-y-1 transition-all duration-200; }
+
+  /* Section rhythm */
+  .section { @apply py-12 md:py-20; }
+  .section-alt { @apply bg-bg-section; }
+  .section-dark { @apply bg-bg-dark text-text-inverse; }
+
+  /* Section heading pattern — reuse everywhere instead of inventing new
+     heading styles per section (Hero excluded, it has its own treatment) */
+  .section-eyebrow { @apply font-mono text-xs tracking-[0.2em] uppercase text-secondary font-semibold; }
+  .section-title { @apply font-display text-2xl md:text-3xl font-semibold text-primary mt-2; }
+  .section-rule { @apply w-[60px] h-[2px] bg-secondary mt-4 mb-2; }
+
+  /* Price / mono utility text */
+  .price { @apply font-mono text-secondary-dark font-semibold; }
+
+  /* Badges (Bestseller / New / category pill on testimonials) */
+  .badge-emerald { @apply inline-block bg-accent-emerald text-text-inverse text-xs font-medium px-3 py-1 rounded-full; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-riseIn {
+  animation: riseIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeIn, .animate-slideDown, .animate-riseIn {
+    animation: none;
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "categories": [
+    "Chips",
+    "Shiva Lingam",
+    "Pyramid",
+    "Crystal Tumble",
+    "Ball",
+    "Oval Shape Crystal",
+    "Tumbled Stone Grape Cluster",
+    "Energy Healing Pencil Crystal",
+    "Mala",
+    "Bracelet",
+    "Crystal Collection",
+    "Spiritual Metal",
+    "Yantra"
+  ],
+  "stones": [
+    "Amethyst",
+    "Black Tourmaline",
+    "Carnelian",
+    "Clear Quartz",
+    "Gomed (Hessonite Garnet)",
+    "Green Jade",
+    "Hematite",
+    "Labradorite",
+    "Lapis Lazuli",
+    "Moonstone",
+    "Pyrite",
+    "Red Jasper",
+    "Rose Quartz",
+    "Tiger Eye",
+    "Yellow Jade"
+  ],
+  "planets": [
+    "All Planets",
+    "Jupiter",
+    "Mars",
+    "Mercury",
+    "Moon",
+    "Rahu",
+    "Saturn",
+    "Sun",
+    "Venus"
+  ],
+  "chakras": [
+    "All Chakras",
+    "Crown Chakra",
+    "Heart Chakra",
+    "Root Chakra",
+    "Sacral Chakra",
+    "Solar Plexus Chakra",
+    "Third Eye Chakra",
+    "Throat Chakra"
+  ],
+  "elements": [
+    "Earth",
+    "Fire",
+    "Space",
+    "Water"
+  ],
+  "priceRange": {
+    "min": 162,
+    "max": 1163
+  }
+}

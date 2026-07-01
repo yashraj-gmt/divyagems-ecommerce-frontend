@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Amit Sharma",
+    "location": "New Delhi, India",
+    "rating": 5,
+    "category": "Yellow Sapphire",
+    "source": "google",
+    "quote": "The natural Ceylon Yellow Sapphire I bought from Divya Gems is of exceptional quality. It came with full lab certification, and I noticed positive astrological effects within a month. Highly recommended for genuine Vedic gems!"
+  },
+  {
+    "id": 2,
+    "name": "Priyanka Patel",
+    "location": "Ahmedabad, India",
+    "rating": 5,
+    "category": "Emerald",
+    "source": "trustpilot",
+    "quote": "Finding untreated Colombian emeralds is extremely hard, but Divya Gems provided a beautiful Muzo stone with full verification. Their customer support guided me patiently through the origin details."
+  },
+  {
+    "id": 3,
+    "name": "Rajesh Mehta",
+    "location": "Mumbai, India",
+    "rating": 5,
+    "category": "Blue Sapphire",
+    "source": "google",
+    "quote": "Stunning blue sapphire! The cut is perfect, and it catches the light beautifully. The secure shipping was incredibly fast, and the packaging was robust and secure."
+  },
+  {
+    "id": 4,
+    "name": "Sunita Rao",
+    "location": "Bangalore, India",
+    "rating": 5,
+    "category": "Rudraksha Mala",
+    "source": "trustpilot",
+    "quote": "The Nepalese 5-Mukhi Rudraksha Mala is absolutely pristine. Each bead is symmetric and strong. Meditating with it brings instant tranquility and focus."
+  },
+  {
+    "id": 5,
+    "name": "David Miller",
+    "location": "London, UK",
+    "rating": 5,
+    "category": "Amethyst Geode",
+    "source": "google",
+    "quote": "The Uruguayan Amethyst Geode arrived safely in London. Fast international shipping and packed incredibly well. It looks stunning in my living room."
+  },
+  {
+    "id": 6,
+    "name": "Anita Deshmukh",
+    "location": "Pune, India",
+    "rating": 5,
+    "category": "Clear Quartz",
+    "source": "trustpilot",
+    "quote": "I ordered the clear quartz chips and a beaded bracelet. The crystals feel pure, and the ring border detail on the packaging was a beautiful touch."
+  }
+]

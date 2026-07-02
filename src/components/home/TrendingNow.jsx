@@ -4,6 +4,7 @@ import ProductCard from '../product/ProductCard';
 import Pagination from '../common/Pagination';
 import Button from '../common/Button';
 import useProducts from '../../hooks/useProducts';
+import YantraMotif from '../common/YantraMotif';
 
 export function TrendingNow({ 
   products = [], 
@@ -87,15 +88,43 @@ export function TrendingNow({
         }
       `}} />
 
-      <div className="container-app">
-        {/* Section Heading */}
-        <div className="flex flex-col items-center text-center mb-10">
-          <SectionHeading eyebrow={eyebrow} title={title} align="center" />
-          {subtitle && (
-            <p className="text-text-muted text-sm md:text-base mt-2">
-              {subtitle}
-            </p>
-          )}
+      {/* Background Yantra Motif for luxury authentic feel */}
+      <YantraMotif 
+        className="opacity-[0.03] text-primary absolute -bottom-12 -right-12 w-80 h-80 pointer-events-none z-0" 
+      />
+
+      <div className="container-app relative z-10">
+        {/* Section Heading & Navigation Controls */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-6">
+          <div className="max-w-2xl text-left">
+            <SectionHeading eyebrow={eyebrow} title={title} align="left" />
+            {subtitle && (
+              <p className="text-text-muted text-sm md:text-base mt-2">
+                {subtitle}
+              </p>
+            )}
+          </div>
+          {/* Navigation Controls (Desktop only) */}
+          <div className="hidden md:flex items-center gap-3 self-end mb-2">
+            <button
+              onClick={handleScrollPrev}
+              className="bg-white border border-border text-primary hover:border-secondary hover:text-secondary transition-all duration-200 w-11 h-11 rounded-full flex items-center justify-center shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/30"
+              aria-label="Scroll Left"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={handleScrollNext}
+              className="bg-white border border-border text-primary hover:border-secondary hover:text-secondary transition-all duration-200 w-11 h-11 rounded-full flex items-center justify-center shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/30"
+              aria-label="Scroll Right"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
         </div>
 
         {/* Carousel Outer Wrapper */}
@@ -104,28 +133,6 @@ export function TrendingNow({
           {/* Subtle Left/Right Fade-Gradient Overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-r from-bg-section to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-10 sm:w-16 bg-gradient-to-l from-bg-section to-transparent z-10 pointer-events-none" />
-
-          {/* Prev Arrow Button (Desktop only) */}
-          <button
-            onClick={handleScrollPrev}
-            className="absolute -left-2 top-1/2 -translate-y-1/2 z-20 bg-bg-section/90 border border-secondary text-primary hover:bg-secondary hover:text-primary transition-all duration-200 select-none shadow-sm cursor-pointer hidden md:flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary/50"
-            aria-label="Scroll Left"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          {/* Next Arrow Button (Desktop only) */}
-          <button
-            onClick={handleScrollNext}
-            className="absolute -right-2 top-1/2 -translate-y-1/2 z-20 bg-bg-section/90 border border-secondary text-primary hover:bg-secondary hover:text-primary transition-all duration-200 select-none shadow-sm cursor-pointer hidden md:flex items-center justify-center w-10 h-10 rounded-full focus:outline-none focus:ring-2 focus:ring-secondary/50"
-            aria-label="Scroll Right"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
 
           {/* Horizontally Scrollable Row */}
           <div

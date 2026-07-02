@@ -9,10 +9,13 @@ export function ReturnPolicy() {
       </p>
       
       {/* At-a-glance strip (3 small cards in a row, stack on mobile) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 select-none">
         {/* Exchange Only */}
-        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200">
-          <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">🔄</span>
+        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200 shadow-xs">
+          <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.656 48.656 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7C4.793 9.547 4.75 10.768 4.75 12s.043 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7C19.454 14.453 19.5 13.232 19.5 12Z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75" />
+          </svg>
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Exchange Only</h4>
             <p className="text-[12.5px] text-text-muted leading-snug">
@@ -22,8 +25,10 @@ export function ReturnPolicy() {
         </div>
 
         {/* 7 Days */}
-        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200">
-          <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">📅</span>
+        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200 shadow-xs">
+          <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5v-.008Z" />
+          </svg>
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-primary uppercase tracking-wider">7 Days</h4>
             <p className="text-[12.5px] text-text-muted leading-snug">
@@ -33,8 +38,10 @@ export function ReturnPolicy() {
         </div>
 
         {/* Unboxing Video Required */}
-        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200">
-          <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">📹</span>
+        <div className="bg-white border border-border rounded-xl p-4 flex gap-3.5 items-start hover:border-secondary transition-all duration-200 shadow-xs">
+          <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25z" />
+          </svg>
           <div className="space-y-1">
             <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Unboxing Required</h4>
             <p className="text-[12.5px] text-text-muted leading-snug">

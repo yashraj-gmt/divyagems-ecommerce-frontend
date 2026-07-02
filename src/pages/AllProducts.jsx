@@ -4,6 +4,7 @@ import ProductCard from '../components/product/ProductCard';
 import Filters from '../components/product/Filters';
 import Pagination from '../components/common/Pagination';
 import YantraMotif from '../components/common/YantraMotif';
+import FAQ from '../components/common/FAQ';
 
 // Import data directly
 import productsData from '../data/products.json';
@@ -294,28 +295,29 @@ export function AllProducts() {
         <div className="flex flex-col lg:flex-row gap-8 items-start relative">
           
           {/* LEFT SIDEBAR - Desktop (Sticky) */}
-          <aside className="hidden lg:block w-[280px] shrink-0 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto pr-3 scrollbar-thin">
-            {/* Direct text keyword search */}
-            <div className="mb-6 bg-white p-4 rounded-xl border border-border">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2.5">Search Catalog</h4>
-              <div className="relative flex items-center border border-border rounded px-3 py-2 bg-bg focus-within:border-secondary transition-all">
-                <input
-                  type="text"
-                  placeholder="Search name, benefit..."
-                  value={searchQuery}
-                  onChange={(e) => {
-                    setSearchQuery(e.target.value);
-                    setCurrentPage(1);
-                  }}
-                  className="w-full text-xs bg-transparent outline-none text-text-primary pr-6"
-                />
-                <svg className="w-4 h-4 text-text-muted absolute right-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
-                </svg>
+          <aside className="hidden lg:block w-[280px] shrink-0 lg:sticky lg:top-24 lg:self-start max-h-[calc(100vh-120px)] pr-3 scrollbar-thin">
+            <div className="sticky top-0 z-20 bg-white/95 backdrop-blur-sm rounded-xl border border-border shadow-sm mb-4">
+              <div className="p-4 border-b border-border/70">
+                <h4 className="text-xs font-bold uppercase tracking-wider text-primary mb-2.5">Search Catalog</h4>
+                <div className="relative flex items-center border border-border rounded px-3 py-2 bg-bg focus-within:border-secondary transition-all">
+                  <input
+                    type="text"
+                    placeholder="Search name, benefit..."
+                    value={searchQuery}
+                    onChange={(e) => {
+                      setSearchQuery(e.target.value);
+                      setCurrentPage(1);
+                    }}
+                    className="w-full text-xs bg-transparent outline-none text-text-primary pr-6"
+                  />
+                  <svg className="w-4 h-4 text-text-muted absolute right-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="bg-white p-5 rounded-xl border border-border">
+            <div className="bg-white p-5 rounded-xl border border-border shadow-sm max-h-[calc(100vh-220px)] overflow-y-auto">
               <Filters
                 categories={categoriesData}
                 stones={productFiltersData.stones}
@@ -485,8 +487,138 @@ export function AllProducts() {
                 />
               </div>
             )}
+          </div> {/* CLOSE Results area */}
+        </div> {/* CLOSE Flex wrapper */}
+
+        {/* Full-width editorial sections below the products and sidebar */}
+        {!loading && paginatedProducts.length > 0 && (
+          <div className="mt-16 sm:mt-20 space-y-16 sm:space-y-20 relative">
+            {/* Background Yantra Motif Watermark */}
+            <YantraMotif className="opacity-[0.02] text-primary absolute -bottom-10 -left-10 w-96 h-96 pointer-events-none z-0" />
+
+            {/* SECTION 1: Gemstone Buying Guide */}
+            <section className="bg-white rounded-2xl border border-border/60 shadow-sm p-6 md:p-8 relative z-10" aria-labelledby="buying-guide-heading">
+              <div className="max-w-3xl mb-8">
+                <span className="font-mono text-xs md:text-sm tracking-[0.25em] uppercase text-secondary font-bold">
+                  ✦ CELESTIAL INTENTION ✦
+                </span>
+                <h2 id="buying-guide-heading" className="font-display text-2xl md:text-3xl font-bold text-primary mt-2">
+                  Gemstone Buying Guide
+                </h2>
+                <p className="text-text-muted text-sm md:text-base mt-2 leading-relaxed">
+                  Start by selecting a gemstone based on your intention, preferred chakra, planet, or space. A gemstone serves as an anchor for your energy and intentions.
+                </p>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-12 items-start">
+                {/* Left Column: Narrative & Callout */}
+                <div className="md:col-span-7 space-y-4 text-sm md:text-base text-text-primary leading-relaxed">
+                  <p>
+                    For thousands of years, Vedic practitioners have selected gemstones to align with planetary rulers and spiritual centers. For beginners, <strong>Clear Quartz</strong> is a versatile choice for clarity, while <strong>Rose Quartz</strong> is popular for love and harmony, and <strong>Carnelian</strong> is chosen for motivation and confidence.
+                  </p>
+                  <p>
+                    Whether you are seeking custom astrological remedies, establishing a peaceful meditation altar, or decorating your workspace with intentional natural objects, our catalog offers certified gems designed to ground and elevate your daily experience.
+                  </p>
+                  <div className="bg-bg-section/50 border-l-4 border-secondary p-4 rounded-r-xl select-none font-sans">
+                    <p className="font-sans italic text-text-primary text-sm leading-relaxed">
+                      "A gemstone is a natural prism that channels celestial energies. Hold or display it while focusing on the attributes you wish to invite into your life."
+                    </p>
+                  </div>
+                </div>
+
+                {/* Right Column: Key Criteria Cards */}
+                <div className="md:col-span-5 space-y-3.5">
+                  <div className="border border-border/70 p-4 rounded-xl hover:border-secondary transition-all">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-secondary mb-1">1. Intention & Attribute</h4>
+                    <p className="text-xs text-text-muted leading-normal">Identify what area of life you want to focus on: grounding (Obsidian), love (Rose Quartz), or clear communication (Sodalite).</p>
+                  </div>
+                  <div className="border border-border/70 p-4 rounded-xl hover:border-secondary transition-all">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-secondary mb-1">2. Planetary Alignment</h4>
+                    <p className="text-xs text-text-muted leading-normal">Choose according to Jyotish recommendations. Align gems with planetary rulers (e.g., Ruby for the Sun, Emerald for Mercury).</p>
+                  </div>
+                  <div className="border border-border/70 p-4 rounded-xl hover:border-secondary transition-all">
+                    <h4 className="text-xs font-bold uppercase tracking-wider text-secondary mb-1">3. Chakra Resonance</h4>
+                    <p className="text-xs text-text-muted leading-normal">Position gems on or near spiritual focal centers (e.g., Amethyst for Third-Eye Chakra, Green Aventurine for Heart Chakra).</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 2: Why Choose Us & Care Guide */}
+            <section className="space-y-8 relative z-10" aria-labelledby="why-choose-heading">
+              <div className="text-center max-w-xl mx-auto">
+                <span className="font-mono text-xs md:text-sm tracking-[0.25em] uppercase text-secondary font-bold">
+                  ✦ TRUSTED VEDIC SOURCE ✦
+                </span>
+                <h2 id="why-choose-heading" className="font-display text-2xl md:text-3xl font-bold text-primary mt-2">
+                  Why Choose Our Gemstones?
+                </h2>
+              </div>
+
+              {/* 3-Column Pillars Grid */}
+              <div className="grid gap-6 sm:grid-cols-3">
+                <div className="bg-white p-5 rounded-2xl border border-border/60 shadow-xs text-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-secondary-light/10 text-secondary-dark flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold text-primary">100% Certified Authentic</h3>
+                  <p className="text-xs text-text-muted leading-relaxed">Sourced ethically and certified by government-approved laboratories. Guaranteed raw, untreated, and completely natural.</p>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-border/60 shadow-xs text-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-secondary-light/10 text-secondary-dark flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1A3.75 3.75 0 0 0 12 18Z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold text-primary">Vedic Consecration</h3>
+                  <p className="text-xs text-text-muted leading-relaxed">Energized according to sacred Vedic protocols by pundits under optimal astronomical configurations to align positive forces.</p>
+                </div>
+
+                <div className="bg-white p-5 rounded-2xl border border-border/60 shadow-xs text-center space-y-2">
+                  <div className="w-10 h-10 rounded-full bg-secondary-light/10 text-secondary-dark flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-base font-bold text-primary">Ethically Sourced</h3>
+                  <p className="text-xs text-text-muted leading-relaxed">We select premium gemstones with high optical clarity, rich natural textures, and robust energetic grids to ensure lifetime quality.</p>
+                </div>
+              </div>
+
+              {/* Application & Care Guide Grid */}
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="bg-white p-6 rounded-2xl border border-border/60 shadow-xs">
+                  <h3 className="text-base md:text-lg font-bold text-primary mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-4 bg-secondary rounded-full" />
+                    Common Applications & Use Cases
+                  </h3>
+                  <p className="text-xs sm:text-sm text-text-muted leading-relaxed font-sans">
+                    Our gemstones work beautifully in meditation practices, Vastu alignments, spiritual home décor setups, pooja altars, workspaces, and crystal grids. They also make thoughtful, meaningful gifts for housewarmings, birthdays, and spiritual milestones.
+                  </p>
+                </div>
+
+                <div className="bg-white p-6 rounded-2xl border border-border/60 shadow-xs">
+                  <h3 className="text-base md:text-lg font-bold text-primary mb-3 flex items-center gap-2">
+                    <span className="w-1.5 h-4 bg-secondary rounded-full" />
+                    Maintenance & Gentle Care Tips
+                  </h3>
+                  <ul className="space-y-2 text-xs sm:text-sm text-text-muted leading-relaxed list-disc pl-5">
+                    <li>Cleanse gemstones gently with moonlight, soft cloth, or mindful intention.</li>
+                    <li>Avoid harsh chemicals, prolonged direct sunlight, or heavy physical impact.</li>
+                    <li>Store them separately in soft pouches to preserve their finish and energy.</li>
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            {/* SECTION 3: Frequently Asked Questions */}
+            <FAQ eyebrow="CUSTOMER SUPPORT" title="Frequently Asked Questions" />
           </div>
-        </div>
+        )}
 
         {/* MOBILE DRAWER FILTERS - Slide-In from left */}
         {showMobileFilters && (

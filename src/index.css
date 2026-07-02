@@ -125,3 +125,29 @@
     animation: none;
   }
 }
+
+/* Enforce 14px minimum font size for arbitrary Tailwind font-size utilities */
+.text-\[8px\],
+.text-\[9px\],
+.text-\[10px\],
+.text-\[11px\],
+.text-\[12px\],
+.text-\[13px\] {
+  font-size: 14px !important;
+}
+
+/* Infinitely Scrolling Marquee Running Bar */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee {
+  animation-play-state: paused;
+}

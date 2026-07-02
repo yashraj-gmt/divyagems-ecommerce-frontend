@@ -13,30 +13,27 @@ export function ContactForm() {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [focusedField, setFocusedField] = useState(null);
 
   const validate = () => {
     const newErrors = {};
     
-    // Name validation
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
     
-    // Phone validation (10 digit pattern)
     if (!formData.phone.trim()) {
       newErrors.phone = 'Mobile number is required';
     } else if (!/^\d{10}$/.test(formData.phone.trim())) {
       newErrors.phone = 'Mobile number must be exactly 10 digits';
     }
     
-    // Email validation
     if (!formData.email.trim()) {
       newErrors.email = 'Email address is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       newErrors.email = 'Please enter a valid email address';
     }
     
-    // Message validation (min 10 characters)
     if (!formData.message.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData.message.trim().length < 10) {
@@ -50,7 +47,6 @@ export function ContactForm() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear validation error dynamically on change
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
@@ -61,13 +57,33 @@ export function ContactForm() {
     if (validate()) {
       setIsSubmitting(true);
       
-      // Simulate submission request
       setTimeout(() => {
         setIsSubmitting(false);
         setIsSuccess(true);
         setFormData({ name: '', phone: '', email: '', message: '' });
       }, 1500);
     }
+  };
+
+  const getInputStyle = (fieldName) => {
+    const isError = !!errors[fieldName];
+    const isFocused = focusedField === fieldName;
+    
+    if (isError) {
+      return {
+        borderColor: '#B23B3B',
+        boxShadow: '0 0 0 1px #B23B3B'
+      };
+    }
+    if (isFocused) {
+      return {
+        borderColor: '#C89B3C',
+        boxShadow: '0 0 0 3px rgba(200, 155, 60, 0.18)'
+      };
+    }
+    return {
+      borderColor: '#E2D5B8'
+    };
   };
 
   if (isSuccess) {
@@ -109,12 +125,11 @@ export function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          onFocus={() => setFocusedField('name')}
+          onBlur={() => setFocusedField(null)}
           placeholder="e.g. Rahul Verma"
-          className="w-full text-sm border bg-bg rounded-md px-3.5 py-2.5 outline-none transition-all duration-200"
-          style={{
-            borderColor: errors.name ? '#B23B3B' : '#E2D5B8',
-            boxShadow: errors.name ? '0 0 0 1px #B23B3B' : 'none'
-          }}
+          className="w-full text-sm border bg-bg rounded-lg px-3.5 py-2.5 outline-none transition-all duration-200"
+          style={getInputStyle('name')}
         />
         {errors.name && (
           <p className="text-xs font-medium" style={{ color: '#B23B3B' }}>
@@ -134,12 +149,11 @@ export function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
+          onFocus={() => setFocusedField('phone')}
+          onBlur={() => setFocusedField(null)}
           placeholder="e.g. 9824645978"
-          className="w-full text-sm border bg-bg rounded-md px-3.5 py-2.5 outline-none transition-all duration-200"
-          style={{
-            borderColor: errors.phone ? '#B23B3B' : '#E2D5B8',
-            boxShadow: errors.phone ? '0 0 0 1px #B23B3B' : 'none'
-          }}
+          className="w-full text-sm border bg-bg rounded-lg px-3.5 py-2.5 outline-none transition-all duration-200"
+          style={getInputStyle('phone')}
         />
         {errors.phone && (
           <p className="text-xs font-medium" style={{ color: '#B23B3B' }}>
@@ -159,12 +173,11 @@ export function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          onFocus={() => setFocusedField('email')}
+          onBlur={() => setFocusedField(null)}
           placeholder="e.g. rahul@example.com"
-          className="w-full text-sm border bg-bg rounded-md px-3.5 py-2.5 outline-none transition-all duration-200"
-          style={{
-            borderColor: errors.email ? '#B23B3B' : '#E2D5B8',
-            boxShadow: errors.email ? '0 0 0 1px #B23B3B' : 'none'
-          }}
+          className="w-full text-sm border bg-bg rounded-lg px-3.5 py-2.5 outline-none transition-all duration-200"
+          style={getInputStyle('email')}
         />
         {errors.email && (
           <p className="text-xs font-medium" style={{ color: '#B23B3B' }}>
@@ -184,12 +197,11 @@ export function ContactForm() {
           rows="4"
           value={formData.message}
           onChange={handleChange}
+          onFocus={() => setFocusedField('message')}
+          onBlur={() => setFocusedField(null)}
           placeholder="Briefly describe your Vastu, gemstone, or astrological concern..."
-          className="w-full text-sm border bg-bg rounded-md px-3.5 py-2.5 outline-none transition-all duration-200 resize-none"
-          style={{
-            borderColor: errors.message ? '#B23B3B' : '#E2D5B8',
-            boxShadow: errors.message ? '0 0 0 1px #B23B3B' : 'none'
-          }}
+          className="w-full text-sm border bg-bg rounded-lg px-3.5 py-2.5 outline-none transition-all duration-200 resize-none"
+          style={getInputStyle('message')}
         />
         {errors.message && (
           <p className="text-xs font-medium" style={{ color: '#B23B3B' }}>
@@ -205,7 +217,7 @@ export function ContactForm() {
           variant="primary"
           fullWidth
           loading={isSubmitting}
-          className="!bg-btn hover:!bg-btn-hover text-xs uppercase tracking-wider font-bold min-h-[44px]"
+          className="shadow-md hover:scale-102 uppercase font-bold text-xs tracking-wider rounded-full min-h-[44px]"
         >
           Send Inquiry
         </Button>

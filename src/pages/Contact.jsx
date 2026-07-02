@@ -11,10 +11,20 @@ export function Contact() {
         description="Get in touch with Divya Gems for Vastu consultation, gemstone recommendations, and astrological advice. Reach us via phone, email, or visit our showroom in Ahmedabad." 
       />
 
-      {/* ── SECTION 1: HEADER (bg-bg) ── */}
-      <section className="pt-16 pb-8 border-b border-border">
-        <div className="container-app text-center">
-          <SectionHeading eyebrow="GET IN TOUCH" title="Contact Us" align="center" />
+      {/* ── SECTION 1: HEADER (bg-[#151112]) ── */}
+      <section className="relative overflow-hidden bg-[#151112] text-text-inverse py-16 border-b border-border">
+        {/* Subtle Yantra watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+          <svg className="w-96 h-96 text-secondary" fill="none" stroke="currentColor" strokeWidth="1" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M12 2v20M2 12h20M7.5 7.5l9 9M7.5 16.5l9-9" />
+          </svg>
+        </div>
+
+        <div className="container-app relative z-10 text-center max-w-4xl mx-auto space-y-3">
+          <span className="font-mono text-xs md:text-sm tracking-[0.25em] uppercase text-secondary font-bold">GET IN TOUCH</span>
+          <h1 className="font-display text-text-inverse text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">Contact Us</h1>
+          <div className="w-[60px] h-[3px] bg-secondary mx-auto mt-2" />
         </div>
       </section>
 
@@ -24,24 +34,27 @@ export function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12">
             
             {/* LEFT — CONTACT FORM: Left on desktop (~60%), 2nd on mobile */}
-            <div className="lg:col-span-7 order-2 lg:order-1 bg-white rounded-card shadow-card p-6 md:p-8 border border-border">
-              <h2 className="font-display text-primary text-lg sm:text-xl font-bold mb-6">
+            <div className="lg:col-span-7 order-2 lg:order-1 bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-border">
+              <h2 className="font-display text-primary text-lg sm:text-xl font-bold mb-6 text-left">
                 Send an Inquiry
               </h2>
               <ContactForm />
             </div>
 
             {/* RIGHT — CONTACT INFO PANEL: Right on desktop (~40%), 1st on mobile */}
-            <div className="lg:col-span-5 order-1 lg:order-2 bg-bg-section rounded-card p-6 md:p-8 border border-border/80 flex flex-col justify-between space-y-8">
+            <div className="lg:col-span-5 order-1 lg:order-2 bg-[#FAF8F5] rounded-2xl p-6 md:p-8 border border-border/80 flex flex-col justify-between space-y-8 text-left">
               
               {/* Stacked Info Rows */}
               <div className="space-y-6 font-sans">
                 {/* Address */}
                 <div className="flex items-start gap-4">
-                  <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">📍</span>
+                  <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+                  </svg>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Address</h4>
-                    <p className="text-[13.5px] text-text-primary leading-relaxed">
+                    <p className="text-[13.5px] text-text-primary leading-relaxed font-sans">
                       6/2, Bhuyangdev Society, Opp. Bhuyangdev BRTS Bus Stop, Memnagar, Ahmedabad &ndash; 380052, Gujarat, India
                     </p>
                   </div>
@@ -49,7 +62,9 @@ export function Contact() {
 
                 {/* Phone */}
                 <div className="flex items-start gap-4">
-                  <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">📞</span>
+                  <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.302a12.017 12.017 0 0 1-5.905-5.905c-.242-.44-.076-.927.302-1.21l1.293-.97a1.125 1.125 0 0 0 .417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+                  </svg>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Phone</h4>
                     <a 
@@ -63,7 +78,9 @@ export function Contact() {
 
                 {/* Email */}
                 <div className="flex items-start gap-4">
-                  <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">📧</span>
+                  <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+                  </svg>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Email</h4>
                     <a 
@@ -77,7 +94,9 @@ export function Contact() {
 
                 {/* Website */}
                 <div className="flex items-start gap-4">
-                  <span className="text-secondary text-lg mt-0.5 shrink-0 select-none">🌐</span>
+                  <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21V2.25m0 18.75a9.002 9.002 0 0 0 5-16.747m-5 16.747a9.002 9.002 0 0 1-5-16.747M12 2.25a9.002 9.002 0 0 1 5 3.253m-5-3.253a9.002 9.002 0 0 0-5 3.253zm0 0v18.75" />
+                  </svg>
                   <div className="space-y-1">
                     <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Website</h4>
                     <a 
@@ -90,6 +109,20 @@ export function Contact() {
                     </a>
                   </div>
                 </div>
+
+                {/* Business Hours */}
+                <div className="flex items-start gap-4">
+                  <svg className="w-5 h-5 text-secondary shrink-0 mt-0.5" fill="none" stroke="currentColor" strokeWidth="2.25" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                  </svg>
+                  <div className="space-y-1">
+                    <h4 className="text-xs font-bold text-primary uppercase tracking-wider">Business Hours</h4>
+                    <p className="text-[13.5px] text-text-primary leading-relaxed">
+                      Mon &ndash; Sat: 10:30 AM &ndash; 8:00 PM <br/>
+                      Sunday: Closed
+                    </p>
+                  </div>
+                </div>
               </div>
 
               {/* Tagline & Social Icons */}
@@ -98,8 +131,8 @@ export function Contact() {
                   &ldquo;Guiding Lives Through Ancient Wisdom &amp; Positive Energy.&rdquo;
                 </p>
 
-                {/* Footer Style Social Icon buttons adapted for sandstone bg */}
-                <div className="flex justify-center lg:justify-start gap-3">
+                {/* Social Icon buttons */}
+                <div className="flex justify-center lg:justify-start gap-3 select-none">
                   {/* Instagram */}
                   <a 
                     href="https://instagram.com" 
@@ -161,7 +194,7 @@ export function Contact() {
       {/* ── SECTION 3: GOOGLE MAP (bg-bg) ── */}
       <section className="py-12 md:py-16 bg-bg">
         <div className="container-app">
-          <div className="rounded-card overflow-hidden border border-border shadow-card h-[400px]">
+          <div className="rounded-2xl overflow-hidden border border-border shadow-sm h-[400px]">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3322.0578623381443!2d72.53243837477132!3d23.06070221490524!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e8350c302dc79%3A0x2277c8833a75c7cf!2sDivya%20Gems!5e1!3m2!1sen!2sin!4v1782904462898!5m2!1sen!2sin" 
               width="100%" 

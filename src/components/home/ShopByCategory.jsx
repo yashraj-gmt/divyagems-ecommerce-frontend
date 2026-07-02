@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import SectionHeading from '../common/SectionHeading';
 import CategoryGrid from '../category/CategoryGrid';
 import useCategories from '../../hooks/useCategories';
+import Button from '../common/Button';
 
 export function ShopByCategory() {
   const { categories: allCategories, loading } = useCategories();
@@ -34,12 +35,15 @@ export function ShopByCategory() {
             className="flex-grow"
           />
           {showViewAll && (
-            <Link
+            <Button
+              as="Link"
               to="/products"
-              className="text-secondary font-semibold text-sm sm:text-base hover:text-secondary-dark hover:underline transition-colors cursor-pointer self-start sm:self-end pb-2"
+              variant="outline"
+              size="sm"
+              className="!border-primary !text-primary hover:!bg-primary hover:!text-text-inverse shadow-sm transition-all duration-300 self-start sm:self-end mb-2"
             >
               View All Categories &rarr;
-            </Link>
+            </Button>
           )}
         </div>
 

@@ -6,7 +6,6 @@ import logo from '/images/logo.png';
 export function Header() {
   const { cart } = useCart();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const cartCount = cart ? cart.length : 0;
 
@@ -52,37 +51,6 @@ export function Header() {
 
         {/* Icons & Action buttons */}
         <div className="flex items-center space-x-4 md:space-x-5">
-          {/* Search Button */}
-          <div className="relative">
-            <button 
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="text-primary hover:text-secondary p-1.5 transition-colors duration-200 cursor-pointer"
-              aria-label="Search products"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.75} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
-              </svg>
-            </button>
-            
-            {/* Simple Dropdown Search Bar */}
-            {isSearchOpen && (
-              <div className="absolute right-0 mt-2 w-72 bg-white rounded-md shadow-lg border border-border p-2 z-50 animate-fadeIn">
-                <form onSubmit={(e) => e.preventDefault()} className="flex items-center border border-border rounded px-2 py-1.5 bg-bg">
-                  <input 
-                    type="text" 
-                    placeholder="Search gems, diamonds..." 
-                    className="w-full text-sm bg-transparent outline-none text-text-primary px-1"
-                    autoFocus
-                  />
-                  <button type="submit" className="text-primary hover:text-secondary">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.602 10.602Z" />
-                    </svg>
-                  </button>
-                </form>
-              </div>
-            )}
-          </div>
 
           {/* User Profile Button */}
           <Link 

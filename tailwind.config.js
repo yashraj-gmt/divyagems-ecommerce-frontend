@@ -37,6 +37,18 @@ export default {
         display: ["Fraunces", "serif"],
         mono: ["IBM Plex Mono", "monospace"],
       },
+      fontSize: {
+        xs: ['14px', { lineHeight: '20px' }],
+        sm: ['16px', { lineHeight: '24px' }],
+        base: ['18px', { lineHeight: '28px' }],
+        lg: ['20px', { lineHeight: '28px' }],
+        xl: ['22px', { lineHeight: '32px' }],
+        '2xl': ['26px', { lineHeight: '34px' }],
+        '3xl': ['32px', { lineHeight: '40px' }],
+        '4xl': ['38px', { lineHeight: '44px' }],
+        '5xl': ['50px', { lineHeight: '56px' }],
+        '6xl': ['62px', { lineHeight: '72px' }],
+      },
       boxShadow: {
         card: "var(--shadow-card)",
         hover: "var(--shadow-hover)",

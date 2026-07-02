@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import Button from '../common/Button';
-import YantraMotif from '../common/YantraMotif';
 
 // Import slide assets
 import heroImg from '../../assets/hero.png';
-import prod1Img from '../../assets/images/product-1.jpeg';
+import prod1Img from '../../assets/images/product-1.png';
 import prod2Img from '../../assets/images/product-2.jpeg';
 import prod3Img from '../../assets/images/product-3.jpg';
 
@@ -144,7 +142,7 @@ export function HeroCarousel({ slides = [] }) {
 
   return (
     <section 
-      className="relative w-full h-[75vh] sm:h-[80vh] md:h-[85vh] flex items-center justify-start bg-primary text-text-inverse overflow-hidden border-b border-border"
+      className="relative w-full aspect-[16/9] sm:aspect-[1920/520] flex items-center justify-start bg-primary text-text-inverse overflow-hidden border-b border-border"
       aria-label="Hero Showcase"
     >
       {/* Background Images Carousel Wrapper */}
@@ -181,13 +179,6 @@ export function HeroCarousel({ slides = [] }) {
             </div>
           );
         })}
-
-        {/* 
-          Readability Overlay:
-          - Uses a custom gradient fading from deep primary brand maroon on the left to transparent on the right on desktop.
-          - Switches to a solid semi-transparent overlay on mobile screens to ensure perfect readability of the white content text.
-        */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent max-md:bg-black/70 z-10" />
 
         {/* Navigation Arrows */}
         <button
@@ -227,44 +218,6 @@ export function HeroCarousel({ slides = [] }) {
           ))}
         </div>
       </div>
-
-      {/* Floating Left Content Overlay */}
-      <div className="container-app relative z-20 w-full flex flex-col justify-center px-6 sm:px-12 md:px-16 lg:px-20 pointer-events-none">
-        <div className="max-w-xl md:max-w-2xl lg:max-w-3xl space-y-6 pointer-events-auto select-text">
-          <span className="font-mono text-xs md:text-sm tracking-[0.2em] uppercase text-secondary font-semibold">
-            SINCE 2001 · TRUSTED BY 10,000+
-          </span>
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-text-inverse leading-tight">
-            Discover Pure Astrological Radiance
-          </h1>
-          <p className="text-text-inverse/85 text-base md:text-lg max-w-lg leading-relaxed">
-            Sourced ethically and energized according to sacred Vedic protocols. Find the genuine Jyotish gemstone tailored to align with your birth chart.
-          </p>
-          <div className="flex flex-wrap gap-4 pt-2">
-            <Button variant="primary" as="Link" to="/products">
-              Explore Collection
-            </Button>
-            <Button 
-              variant="outline" 
-              className="!text-text-inverse hover:!text-primary border-text-inverse/60 hover:bg-text-inverse" 
-              as="Link" 
-              to="/contact"
-            >
-              Free Consultation
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Micro-caption (bottom-right of slide overlay) */}
-      <span className="absolute bottom-6 right-6 z-20 font-mono text-[10px] md:text-xs uppercase tracking-widest text-text-inverse bg-primary/75 px-3 py-1.5 rounded-md backdrop-blur-xs shadow-sm select-none pointer-events-none hidden sm:inline-block">
-        {activeSlides[currentIndex].caption}
-      </span>
-
-      {/* Yantra Motif Watermark Background */}
-      <YantraMotif 
-        className="opacity-10 text-secondary absolute -bottom-10 -right-10 w-64 h-64 pointer-events-none z-10" 
-      />
     </section>
   );
 }

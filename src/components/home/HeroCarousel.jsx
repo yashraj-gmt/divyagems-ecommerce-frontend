@@ -1,18 +1,21 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 // Import slide assets
-import heroImg from '../../assets/hero.png';
-import prod1Img from '../../assets/images/product-1.png';
-import prod2Img from '../../assets/images/product-2.jpeg';
-import prod3Img from '../../assets/images/product-3.jpg';
+import hero1 from '../../assets/images/hero-1.png';
+import hero2 from '../../assets/images/hero-2.png';
+import hero3 from '../../assets/images/hero-3.png';
+import hero4 from '../../assets/images/hero-4.png';
+import hero5 from '../../assets/images/hero-5.png';
 
 export function HeroCarousel({ slides = [] }) {
   // Setup default slides if not provided
   const defaultSlides = [
-    { image: heroImg, caption: 'Experience Eternal Vibrance' },
-    { image: prod1Img, caption: 'Natural Gemstone Brilliance' },
-    { image: prod2Img, caption: 'Handcrafted Vedic Treasures' },
-    { image: prod3Img, caption: 'Authentic Astrological Quality' },
+    { image: hero1, caption: 'Experience Eternal Vibrance' },
+    { image: hero2, caption: 'Natural Gemstone Brilliance' },
+    { image: hero3, caption: 'Handcrafted Vedic Treasures' },
+    { image: hero4, caption: 'Authentic Astrological Quality' },
+    { image: hero5, caption: 'Vedic Prosperity Alignment' },
   ];
 
   const activeSlides = slides.length > 0 ? slides : defaultSlides;
@@ -87,19 +90,22 @@ export function HeroCarousel({ slides = [] }) {
     }, 8000);
   }, []);
 
-  const handleNext = () => {
+  const handleNext = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     nextSlide();
     startInteraction();
     endInteraction();
   };
 
-  const handlePrev = () => {
+  const handlePrev = (e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     prevSlide();
     startInteraction();
     endInteraction();
   };
 
-  const handleDotClick = (index) => {
+  const handleDotClick = (index, e) => {
+    if (e && e.stopPropagation) e.stopPropagation();
     setCurrentIndex(index);
     startInteraction();
     endInteraction();
@@ -163,9 +169,10 @@ export function HeroCarousel({ slides = [] }) {
         {activeSlides.map((slide, index) => {
           const isActive = index === currentIndex;
           return (
-            <div
+            <Link
               key={index}
-              className={`absolute inset-0 w-full h-full ${
+              to="/products"
+              className={`absolute inset-0 w-full h-full cursor-pointer ${
                 reducedMotion ? '' : 'transition-opacity duration-700 ease-in-out'
               } ${isActive ? 'opacity-100 z-0' : 'opacity-0 -z-10'}`}
               aria-hidden={!isActive}
@@ -176,13 +183,13 @@ export function HeroCarousel({ slides = [] }) {
                 className="w-full h-full object-cover"
                 draggable={false}
               />
-            </div>
+            </Link>
           );
         })}
 
         {/* Navigation Arrows */}
         <button
-          onClick={handlePrev}
+          onClick={(e) => handlePrev(e)}
           className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-text-inverse transition-colors backdrop-blur-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/50 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300"
           aria-label="Previous Slide"
         >
@@ -192,7 +199,7 @@ export function HeroCarousel({ slides = [] }) {
         </button>
 
         <button
-          onClick={handleNext}
+          onClick={(e) => handleNext(e)}
           className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 flex items-center justify-center rounded-full bg-white/20 hover:bg-white/40 text-text-inverse transition-colors backdrop-blur-xs cursor-pointer focus:outline-none focus:ring-2 focus:ring-secondary/50 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300"
           aria-label="Next Slide"
         >
@@ -206,7 +213,7 @@ export function HeroCarousel({ slides = [] }) {
           {activeSlides.map((_, index) => (
             <button
               key={index}
-              onClick={() => handleDotClick(index)}
+              onClick={(e) => handleDotClick(index, e)}
               className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
                 index === currentIndex 
                   ? 'bg-secondary w-6' 

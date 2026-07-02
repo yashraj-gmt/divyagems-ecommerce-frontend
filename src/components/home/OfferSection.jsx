@@ -4,8 +4,8 @@ import YantraMotif from '../common/YantraMotif';
 import useCountdown from '../../hooks/useCountdown';
 
 // Import flanking images
-import prod1 from '../../assets/images/product-1.jpeg';
-import prod2 from '../../assets/images/product-2.jpeg';
+import hero4 from '../../assets/hero-4.png';
+import hero5 from '../../assets/hero-5.png';
 
 export function OfferSection({ targetDate }) {
   // Stable date selection (stored in localStorage to prevent reset on re-render)
@@ -41,13 +41,13 @@ export function OfferSection({ targetDate }) {
     <section className="section bg-[#151112] text-text-inverse relative py-20 overflow-hidden">
       {/* Left Flanking Image (Floating 3D Showcase) */}
       <div className="absolute left-8 xl:left-16 top-1/2 -translate-y-1/2 w-52 h-64 hidden lg:block select-none pointer-events-none rounded-2xl overflow-hidden border border-secondary/25 shadow-2xl rotate-3 opacity-45 transition-transform duration-500 hover:rotate-1 z-0">
-        <img src={prod1} alt="Bestseller Gemstone" className="w-full h-full object-cover" />
+        <img src={hero4} alt="Bestseller Gemstone" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-black/35" />
       </div>
 
       {/* Right Flanking Image (Floating 3D Showcase) */}
       <div className="absolute right-8 xl:right-16 top-1/2 -translate-y-1/2 w-52 h-64 hidden lg:block select-none pointer-events-none rounded-2xl overflow-hidden border border-secondary/25 shadow-2xl -rotate-3 opacity-45 transition-transform duration-500 hover:rotate-1 z-0">
-        <img src={prod2} alt="Vedic Solitaire" className="w-full h-full object-cover" />
+        <img src={hero5} alt="Vedic Solitaire" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/10 to-black/35" />
       </div>
 
